@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Provider\UserAgent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('login',$status=false,$msg="pesansalah");
+});
+
+Route::post('/auth/login', function () {
+    
+    // $email = 'UserAgent';
+    // $pass = 'pass';
+
+    // // checkuserpass
+    // $msg='';
+
+    // if('passsalah'){
+    //     $msg="Password Salah";
+    // }
+
+    // if('passsalah'){
+    //     return view("login",['status'=>true,'msg'=>"Password Salah"]);
+    // }
+
+    // if('passsalah'){
+    //     return view("login",['status'=>true,'msg'=>"Password Salah"]);
+    // }
+    // return view("login",['status'=>true,'msg'=>$msg]);
+   
+
+    // if("")
+
+
+
+
+
+
 });
