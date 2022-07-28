@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PendaftarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::get('/pendaftar', 'App\Http\Controllers\PendaftarController@get');
+
+Route::get('/showPendaftar', 'App\Http\Controllers\PendaftarController@index');
+Route::post('/createPendaftar', 'App\Http\Controllers\PendaftarController@store');
+Route::post('/ubahPendaftar', 'App\Http\Controllers\PendaftarController@update');
+Route::post('/deletePendaftar', 'App\Http\Controllers\PendaftarController@destroy');
+
+// Route::put('/pendaftar/{id}', 'App\Http\Controllers\PendaftarController@put');
+
+// Route::delete('/pendaftar/{id}', 'App\Http\Controllers\PendaftarController@delete');
+
