@@ -2,6 +2,8 @@
 
 use Faker\Provider\UserAgent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PengajuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,36 +19,44 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view("welcome");
+    return view('login',$status=false,$msg="pesansalah");
 });
+Route::post('/register',[AuthController::class,'register']);
+Route::post('/login',[AuthController::class,'login']);
+Route::post('/logout',[AuthController::class,'logout']);
 
-// Route::post('/auth/login', function () {
+Route::get('/showPengajuan', [PengajuanContyroller::class,'index']);
+Route::post('/createPengajuan', [PengajuanController::class,'store']);
+Route::post('/ubahPengajuan', [PengajuanController::class,'update']);
+Route::post('/deletePengajuan', [PengajuanController::class,'destroy']);
+
+Route::post('/auth/login', function () {
     
-//     // $email = 'UserAgent';
-//     // $pass = 'pass';
+    // $email = 'UserAgent';
+    // $pass = 'pass';
 
-//     // // checkuserpass
-//     // $msg='';
+    // // checkuserpass
+    // $msg='';
 
-//     // if('passsalah'){
-//     //     $msg="Password Salah";
-//     // }
+    // if('passsalah'){
+    //     $msg="Password Salah";
+    // }
 
-//     // if('passsalah'){
-//     //     return view("login",['status'=>true,'msg'=>"Password Salah"]);
-//     // }
+    // if('passsalah'){
+    //     return view("login",['status'=>true,'msg'=>"Password Salah"]);
+    // }
 
-//     // if('passsalah'){
-//     //     return view("login",['status'=>true,'msg'=>"Password Salah"]);
-//     // }
-//     // return view("login",['status'=>true,'msg'=>$msg]);
+    // if('passsalah'){
+    //     return view("login",['status'=>true,'msg'=>"Password Salah"]);
+    // }
+    // return view("login",['status'=>true,'msg'=>$msg]);
    
 
-//     // if("")
+    // if("")
 
 
 
 
 
 
-// });
+});
