@@ -32,8 +32,8 @@ Route::post('/deletePengajuan', [PengajuanController::class,'destroy']);
 
 Route::post('/auth/login', function () {
     
-    // $email = 'UserAgent';
-    // $pass = 'pass';
+    $email = 'UserAgent';
+    $pass = 'pass';
 
     // // checkuserpass
     // $msg='';
