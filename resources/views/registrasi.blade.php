@@ -25,7 +25,7 @@
         <div class="section-title">
           <h2>REGISTRASI</h2>
         </div>
-        <!-- Register Added -->
+
         <div class="col-lg-7" style="width:650px;margin:0 auto;">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
