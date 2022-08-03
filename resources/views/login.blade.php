@@ -26,7 +26,7 @@
             <br><br>
             <h1>LOGIN</h1>
         </div>
-
+        <!-- Jendela Login -->
         <div class="col-lg-7" style="width:400px;margin:0 auto;">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
