@@ -25,7 +25,7 @@ use App\Http\Controllers\PendaftarController;
     Route::post('logout',[AuthController::class,'logout']);
     Route::post('me', [AuthController::class,'me']);
 // });
-
+// tes
 Route::get('/showPengajuan', [PengajuanContyroller::class,'index']);
 Route::post('/createPengajuan', [PengajuanController::class,'store']);
 Route::post('/ubahPengajuan', [PengajuanController::class,'update']);
