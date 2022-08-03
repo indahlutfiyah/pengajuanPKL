@@ -2,6 +2,8 @@
 
 use Faker\Provider\UserAgent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PengajuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view("welcome");
 });
+Route::post('/register',[AuthController::class,'register']);
+Route::post('/login',[AuthController::class,'login']);
+Route::post('/logout',[AuthController::class,'logout']);
+
+Route::get('/showPengajuan', [PengajuanContyroller::class,'index']);
+Route::post('/createPengajuan', [PengajuanController::class,'store']);
+Route::post('/ubahPengajuan', [PengajuanController::class,'update']);
+Route::post('/deletePengajuan', [PengajuanController::class,'destroy']);
 
 // Route::post('/auth/login', function () {
     

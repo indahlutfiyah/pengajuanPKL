@@ -32,10 +32,15 @@ class AuthController extends Controller
         ]);
         
         if($user){
+            $user->session()->flash('success','Registrasi successfull ! Please login');
+            return redirect('/login');
            
-            return response()->json(["message"=>'pendaftaran berhasil !']);
+            // return response()->json(["message"=>'pendaftaran berhasil !']);
         }else{
-            return response()->json(["message"=>'pendaftaran gagal !']);
+            $user->session()->flash('success','Registrasi unsuccessful ! Please repeat');
+            return redirect('/registrasi');
+           
+            // return response()->json(["message"=>'pendaftaran gagal !']);
         }
     }
     /**
@@ -48,10 +53,12 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            // return response()->json(['error' => 'Unauthorized'], 401);
+            return redirect() ->  intended('/login');
         }
 
-        return $this->respondWithToken($token);
+        // return $this->respondWithToken($token);
+        return back() -> with('LoginError', 'Login failed!');
     }
 
     /**
@@ -73,7 +80,8 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        //return response()->json(['message' => 'Successfully logged out']);
+        return redirect('/index') -> with('Successfully logged out');
     }
 
     /**

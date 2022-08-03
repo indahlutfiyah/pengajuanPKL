@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PengajuanController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,3 +21,8 @@ use App\Http\Controllers\AuthController;
     Route::post('logout',[AuthController::class,'logout']);
     Route::post('me', [AuthController::class,'me']);
 // });
+
+Route::get('/showPengajuan', [PengajuanContyroller::class,'index']);
+Route::post('/createPengajuan', [PengajuanController::class,'store']);
+Route::post('/ubahPengajuan', [PengajuanController::class,'update']);
+Route::post('/deletePengajuan', [PengajuanController::class,'destroy']);
