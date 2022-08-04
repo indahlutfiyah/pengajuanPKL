@@ -25,6 +25,8 @@ Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::post('/logout',[AuthController::class,'logout']);
 
+// ADD TO GITHUB
+
 Route::get('/showPengajuan', [PengajuanContyroller::class,'index']);
 Route::post('/createPengajuan', [PengajuanController::class,'store']);
 Route::post('/ubahPengajuan', [PengajuanController::class,'update']);
