@@ -15,7 +15,7 @@
   <link href="/vendor/login/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="/css/login.css" rel="stylesheet">
 </head>
-{{-- PANUD TES --}}
+{{-- PANDU ATE NGPSUHS --}}
 <body>
   <main id="main">
     <!-- ======= LOGIN ======= -->
