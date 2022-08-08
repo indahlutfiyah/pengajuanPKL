@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PengajuanController extends Controller
 {
@@ -11,7 +12,7 @@ class PengajuanController extends Controller
     {
         //
         $pengajuan = Pengajuan::paginate(10);
-        return view('pengajuan',[
+        return view('pengajuan', [
             'data' => $pengajuan,
             'message' => 'berhasil!!'
         ]);
@@ -23,7 +24,8 @@ class PengajuanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function tambah(){
+    public function tambah()
+    {
         return view('tahap2');
     }
 
@@ -31,11 +33,11 @@ class PengajuanController extends Controller
     {
         //
         $pengajuan = new Pengajuan;
-        $pengajuan->SURAT_PENGANTAR = $request ->SURAT_PENGANTAR;
-        $pengajuan->PROPOSAL = $request ->PROPOSAL;
-        $pengajuan->STATUS_PENGAJUAN = $request ->STATUS_PENGAJUAN;
-    
-          
+        $pengajuan->SURAT_PENGANTAR = $request->SURAT_PENGANTAR;
+        $pengajuan->PROPOSAL = $request->PROPOSAL;
+        $pengajuan->STATUS_PENGAJUAN = $request->STATUS_PENGAJUAN;
+
+
         // $pengajuan->save();
 
         // return response()->json([
@@ -43,14 +45,14 @@ class PengajuanController extends Controller
         //     'message' => 'Tambah data berhasil!!'
         // ]);
 
-        if($pengajuan->save()){
+        if ($pengajuan->save()) {
             echo "
             <script>
                 alert('Data berhasil ditambahkan');
                 document.location.href='/kecamatan'
             </script>
             ";
-        }else{
+        } else {
             echo "
             <script>
                 alert('Data gagal ditambahkan');
@@ -58,7 +60,6 @@ class PengajuanController extends Controller
             </script>
             ";
         }
-
     }
 
     /**
@@ -70,7 +71,7 @@ class PengajuanController extends Controller
     public function show(Pengajuan $pendaftar)
     {
         //
-        
+
     }
 
     /**
@@ -85,18 +86,17 @@ class PengajuanController extends Controller
         //
         $pengajuan = Pengajuan::find($request->id);
         $pengajuan = new Pengajuan;
-        $pengajuan->SURAT_PENGANTAR = $request ->SURAT_PENGANTAR;
-        $pengajuan->PROPOSAL = $request ->PROPOSAL;
-        $pengajuan->STATUS_PENGAJUAN = $request ->STATUS_PENGAJUAN;
-          
+        $pengajuan->SURAT_PENGANTAR = $request->SURAT_PENGANTAR;
+        $pengajuan->PROPOSAL = $request->PROPOSAL;
+        $pengajuan->STATUS_PENGAJUAN = $request->STATUS_PENGAJUAN;
+
         $pengajuan->save();
 
         // return response()->json([
         //     'data' => $pengajuan,
         //     'message' => 'Ubah data berhasil!!'
         // ]);
-                return redirect('/pengajuan')->with('status','Pengajuan berhasil di update!');
-
+        return redirect('/pengajuan')->with('status', 'Pengajuan berhasil di update!');
     }
 
     /**
@@ -114,5 +114,41 @@ class PengajuanController extends Controller
         return response()->json([
             'message' => 'Data berhasil di hapus coyyy!!!'
         ]);
+    }
+
+    public function approved(Request $request)
+    {
+        return view('', [
+            'report' => Pengajuan::where('status', '1')->orderBy('tgl', 'desc')->get(),
+            'title' => 'Approved Report',
+            'counter' => 1
+        ]);
+    }
+
+    public function approve($id)
+    {
+        DB::table('pengajuan')
+            ->where('id', $id)
+            ->update(['status' => '1']);
+
+        return redirect('/')->with('approved', 'Laporan Disetujui');
+    }
+
+    public function decline($id)
+    {
+        DB::table('pengajuan')
+            ->where('id', $id)
+            ->update(['status' => '2']);
+
+        return redirect('/')->with('declined', 'Laporan Ditolak');
+    }
+
+    public function unapprove($id)
+    {
+        DB::table('pengajuan')
+            ->where('id', $id)
+            ->update(['status' => '0']);
+
+        return redirect('/')->with('unapprove', 'Laporan Batal Disetujui');
     }
 }
