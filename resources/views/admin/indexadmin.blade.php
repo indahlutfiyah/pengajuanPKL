@@ -6,14 +6,14 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Internship | Admin</title>
-    @include('admin/template/head')
+    @include('template/head')
 </head>
 <!-- END HEAD -->
 
 <!-- BODY -->
 <body>
     <!--Header Sidebar-->
-    @include('admin/template/sidebaradmin')
+    @include('template/sidebarusers')
 
     <!--Main-->
     <main id="main" class="main">
@@ -27,7 +27,7 @@
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card customers-card">
                         <div class="card-body">
-                            <h5 class="card-title">Validasi PKL <span>| Tahap 1</span></h5>
+                            <h5 class="card-title">Validasi PKL/Magang <span>| Tahap 1</span></h5>
                             <div class="d-flex align-items-center">
                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-people"></i>
@@ -41,29 +41,11 @@
                     </div>
                 </div>
 
-                <!-- MAGANG VALIDASI TAHAP 1 -->
-                <div class="col-xxl-4 col-md-6">
-                    <div class="card info-card sales-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Validasi Magang <span>| Tahap 1</span></h5>
-                            <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-people"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h6>3</h6>
-                                    <span class="text-primary small pt-1 fw-bold">Pengajuan</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- PKL VALIDASI TAHAP 2 -->
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card customers-card">
                         <div class="card-body">
-                            <h5 class="card-title">Validasi PKL <span>| Tahap 2</span></h5>
+                            <h5 class="card-title">Validasi PKL/Magang <span>| Tahap 2</span></h5>
                             <div class="d-flex align-items-center">
                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-people"></i>
@@ -77,30 +59,12 @@
                     </div>
                 </div>
 
-                <!-- MAGANG VALIDASI TAHAP 2 -->
-                <div class="col-xxl-4 col-md-6">
-                    <div class="card info-card sales-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Validasi Magang <span>| Tahap 2</span></h5>
-                            <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-people"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h6>4</h6>
-                                    <span class="text-primary small pt-1 fw-bold">Pengajuan</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <h5 class="card-title">LOGBOOK<span> PKL/MAGANG</span></h5>
                 <!-- LOGBOOK PKL -->
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card customers-card">
                         <div class="card-body">
-                            <h5 class="card-title">LOGBOOK <span>| PKL</span></h5>
+                            <h5 class="card-title">LOGBOOK <span>| PKL/Magang</span></h5>
                             <div class="d-flex align-items-center">
                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-person-lines-fill"></i>
@@ -108,24 +72,6 @@
                                 <div class="ps-3">
                                     <h6>17</h6>
                                     <span class="text-danger small pt-1 fw-bold">Approval</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LOGBOOK MAGANG -->
-                <div class="col-xxl-4 col-md-6">
-                    <div class="card info-card sales-card">
-                        <div class="card-body">
-                            <h5 class="card-title">LOGBOOK <span>| PKL</span></h5>
-                            <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-person-lines-fill"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h6>12</h6>
-                                    <span class="text-primary small pt-1 fw-bold">Approval</span>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +86,7 @@
     </main>
 
     <!--Footer Script-->
-    @include('admin/template/footer')
+    @include('template/footer')
 
 </body>
 <!-- END BODY -->

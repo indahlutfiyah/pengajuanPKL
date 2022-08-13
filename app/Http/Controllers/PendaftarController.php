@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Pendaftar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\user;
 
 class PendaftarController extends Controller
 {
@@ -15,13 +18,39 @@ class PendaftarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexAdmin()
     {
         //
-        $pendaftar = Pendaftar::paginate(10);
-        return response()->json([
+        // $pendaftar = Pendaftar::paginate(10);
+        $pendaftar = pendaftar::all();
+        return view('/admin/...', [
             'data' => $pendaftar
         ]);
+
+        // return response()->json([
+        //     'data' => $pendaftar
+        // ]);
+    }
+
+    public function indexUser()
+    {
+        //
+        // $pendaftar = Pendaftar::paginate(10);
+
+        $pendaftar = auth::users()->id; 
+        $user = User::where('id',$pendaftar)->first(); 
+        return response()->json([ 
+            'data' => $pendaftar 
+        ]);
+
+        // $pendaftar = pendaftar::all();
+        // return view('/users/...', [
+        //     'data' => $pendaftar
+        // ]);
+        
+        // return response()->json([
+        //     'data' => $pendaftar
+        // ]);
     }
 
     /**
@@ -48,13 +77,26 @@ class PendaftarController extends Controller
         $pendaftar->STATUS_PENGAJUAN = $request ->STATUS_PENGAJUAN;
         $pendaftar->PASSWORD = $request ->PASSWORD;
           
-        $pendaftar->save();
+        if($pendaftar->save()){
+            echo "
+            <script>
+                alert('Data berhasil ditambahkan');
+                document.location.href='/'
+            </script>
+            ";
+        }else{
+            echo "
+            <script>
+                alert('Data gagal ditambahkan');
+                document.location.href='/'
+            </script>
+            ";
+        };
 
-        return response()->json([
-            'data' => $pendaftar,
-            'message' => 'Tambah data berhasil!!'
-        ]);
-
+        // return response()->json([
+        //     'data' => $pendaftar,
+        //     'message' => 'Tambah data berhasil!!'
+        // ]);
     }
 
     /**
@@ -116,6 +158,35 @@ class PendaftarController extends Controller
 
         return response()->json([
             'message' => 'Data berhasil di hapus coyyy!!!'
+        ]);
+    }
+
+    //change status
+    public function changeStatus($id){
+        $getStatus = pendaftar::select('STATUS_PENGAJUAN')->where('ID_PENDAFTAR', $id)->first();
+        if($getStatus->STATUS_PENGAJUAN == 1){
+            $STATUS_PENGAJUAN=0;
+        }else{
+            $STATUS_PENGAJUAN=1;
+        }
+
+        pendaftar::where('ID_PENDAFTAR', $id)->update(['STATUS_PENGAJUAN'=>$STATUS_PENGAJUAN]);
+        return redirect()->back();
+    }
+
+    public function decline(){
+        $accept = DB::table('pendaftar')
+        ->where('pendaftar.STATUS_PENGAJUAN', '=', '0')->get();
+        return view('/admin/...', [
+            'data' => $accept
+        ]);
+    }
+    
+    public function accept(){
+        $decline = DB::table('pendaftar')
+        ->where('pendaftar.STATUS_PENGAJUAN', '=', '1')->get();
+        return view('/admin/...', [
+            'data' => $decline
         ]);
     }
 }
