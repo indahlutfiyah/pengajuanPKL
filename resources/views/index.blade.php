@@ -9,8 +9,8 @@
     <title>Internship BMKG Juanda</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <link href="/img/LOGO BMKG.png" rel="icon">
-    <link href="/img/LOGO BMKG.png" rel="apple-touch-icon">
+    <link href="/img/bmkg.png" rel="icon">
+    <link href="/img/bmkg.png" rel="apple-touch-icon">
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
@@ -30,7 +30,7 @@
         <div class="container d-flex align-items-center">
             <div class="logo me-auto">
                 <a href="/">
-                    <h1><img src="/img/logo bmkg.png" alt="" class="/img-fluid"> BMKG JUANDA
+                    <h1><img src="/img/bmkg.png" alt="" class="/img-fluid"> BMKG JUANDA
                 </a></h1>
             </div>
 
@@ -82,7 +82,7 @@
                 <div class="col-lg-2 order-1 order-lg-2 hero-img" data-aos="fade-left">
                 </div>
                 <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="/img/logo-bmkg.png" class="/img-fluid" alt="" style="width:300px;height:300px;">
+                    <img src="/img/bmkg.png" class="/img-fluid" alt="" style="width:300px;height:300px;">
                     <br><br><br><br><br><br>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                                     risus at semper.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
+                                <img src="/img/testimonials/testimonials-1.jpg" class="testimonial-img"
                                     alt="">
                                 <h3>Saul Goodman</h3>
                                 <h4>Ceo &amp; Founder</h4>
@@ -217,7 +217,7 @@
                                     legam anim culpa.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
+                                <img src="/img/testimonials/testimonials-2.jpg" class="testimonial-img"
                                     alt="">
                                 <h3>Sara Wilsson</h3>
                                 <h4>Designer</h4>
@@ -233,7 +233,7 @@
                                     minim.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
+                                <img src="/img/testimonials/testimonials-3.jpg" class="testimonial-img"
                                     alt="">
                                 <h3>Jena Karlis</h3>
                                 <h4>Store Owner</h4>
@@ -249,7 +249,7 @@
                                     dolore labore illum veniam.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
+                                <img src="/img/testimonials/testimonials-4.jpg" class="testimonial-img"
                                     alt="">
                                 <h3>Matt Brandon</h3>
                                 <h4>Freelancer</h4>
@@ -265,7 +265,7 @@
                                     culpa fore nisi cillum quid.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img"
+                                <img src="/img/testimonials/testimonials-5.jpg" class="testimonial-img"
                                     alt="">
                                 <h3>John Larson</h3>
                                 <h4>Entrepreneur</h4>
