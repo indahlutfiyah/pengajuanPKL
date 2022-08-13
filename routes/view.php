@@ -45,6 +45,6 @@ use Illuminate\Support\Facades\Route;
     Route::get('/logbook', function () {
         return view('users/logbook');
     });
-    Route::get('/editLogbook', function () {
-        return view('users/editLogbook');
+    Route::get('/editlogbook', function () {
+        return view('users/editlogbook');
     });

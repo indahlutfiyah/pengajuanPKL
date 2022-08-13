@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>BMKG Juanda | Internship</title>
-    @include('users/template/head')
+    @include('template/head')
 </head>
 <!-- END HEAD -->
 
@@ -15,7 +15,7 @@
 
 <body>
     <!--Header Sidebar-->
-    @include('users/template/sidebarusers')
+    @include('template/sidebarusers')
 
     <!--Main-->
     <main id="main" class="main">
@@ -99,7 +99,7 @@
     </main>
 
     <!--Footer Script-->
-    @include('users/template/footer')
+    @include('template/footer')
 
 </body>
 <!-- END BODY -->
