@@ -63,7 +63,6 @@ Route::post('/auth/login', function () {
     // }
     // return view("login",['status'=>true,'msg'=>$msg]);
 
-
     // if("")
 
 });
@@ -73,6 +72,8 @@ Route::get('/decline', [PendaftarController::class, 'decline'] );
 Route::get('/accept', [PendaftarController::class, 'accept'] );
 Route::get('/change-status/{ID_PENDAFTAR}', [PendaftarController::class, 'changeStatus']);
 
+
 Route::get('/cekPengajuan', function(){
     return view('/users/cekPengajuan');
 });
+
