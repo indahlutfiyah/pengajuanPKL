@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     /**
-     * Display a listing of the 
+
+     * Display a listing of the gatel.
+
      *
      * @return \Illuminate\Http\Response
      */
