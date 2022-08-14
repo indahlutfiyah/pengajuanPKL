@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the 
      *
      * @return \Illuminate\Http\Response
      */
