@@ -19,6 +19,7 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="card">
+            @foreach($logbook as $data )
             <div class="card-body pt-3">
             <br>
             <h3 style="text-align:center"><b>EDIT LOGBOOK</b></h3>
@@ -27,28 +28,31 @@
                 <div class="tab-pane fade show active tahap1" id="tahap1">
                 <h5 class="card-title">Edit Logbook</h5>
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form action="/logbook/update" method="post" >
+                    @csrf
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-3 col-lg-2 col-form-label">Nama</label>
                       <div class="col-md-9 col-lg-10">
-                        <input name="name" type="text" class="form-control" id="" value="">
+                        <input name="name" type="text" class="form-control" id="" value="{{ $data->NAMA }}">
+                        <input type="hidden" name="id" class="form-control" value="{{ $data->ID_LOGBOOK }}" value=""/>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-3 col-lg-2 col-form-label">Tanggal</label>
                       <div class="col-md-9 col-lg-10">
-                        <input name="tgl" type="date" class="form-control" id="" value="">
+                        <input name="tgl" type="date" class="form-control" id="" value="{{ $data->TGL_KEGIATAN }}">
+                        <input type="hidden" name="id" class="form-control" value="{{ $data->ID_LOGBOOK }}" />
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-3 col-lg-2 col-form-label">Deskripsi</label>
                       <div class="col-md-9 col-lg-10">
-                      <textarea name="des" class="form-control" style="height: 100px"></textarea>
+                      <textarea name="des" class="form-control" style="height: 100px" value="{{ $data->DESKRIPSI }}"></textarea>
                       </div>
                     </div>
-                    <h1 style="text-align:right;"><a href="tambah.php"><button type="button" class="btn btn-primary">UBAH</button></a></h1>
+                    <button type="submit" class="btn btn-primary">Edit</button>
                     <br>
                   </form><!-- End Profile Edit Form -->
                 </div>
@@ -56,7 +60,7 @@
 
             </div>
           </div>
-
+          @endforeach
         </div>
       </div>
     </section>

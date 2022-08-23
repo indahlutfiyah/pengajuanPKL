@@ -48,7 +48,7 @@
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
-                    @foreach($rekap1 as $data )
+                    @foreach($accept1 as $data )
                     <tbody>
                       <tr>
                         <td>{{ $loop->iteration }}</td>

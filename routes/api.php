@@ -26,7 +26,19 @@ use App\Http\Controllers\PendaftarController;
     Route::post('me', [AuthController::class,'me']);
 // });
 // tes
-Route::get('/showPengajuan', [PengajuanContyroller::class,'index']);
-Route::post('/createPengajuan', [PengajuanController::class,'store']);
+
+Route::get('/showPengajuan', [PengajuanController::class,'index']);
+Route::get('/createpengajuan',[PengajuanController::class,'tambah']);
+Route::post('/showPengajuan', [PengajuanController::class,'store']);
+Route::get('/editrole{ID_ROLE}',[PengajuanController::class,'edit']);
 Route::post('/ubahPengajuan', [PengajuanController::class,'update']);
 Route::post('/deletePengajuan', [PengajuanController::class,'destroy']);
+Route::get('/accept', [PengajuanController::class,'accept']);
+Route::get('/decline', [PengajuanController::class,'decline']);
+
+Route::get('/showLogbook', [LogbookController::class,'index']);
+Route::get('/createlogbook',[LogbookController::class,'tambah']);
+Route::post('/showLogbook', [LogbookController::class,'store']);
+Route::get('/editrole{ID_ROLE}',[LogbookController::class,'edit']);
+Route::post('/ubahLogbook', [LogbookController::class,'update']);
+Route::post('/deleteLogbook', [LogbookController::class,'destroy']);

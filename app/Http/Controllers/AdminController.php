@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Pengajuan;
+use App\Models\Pendaftar;
+use App\Models\Logbook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -16,13 +19,70 @@ class AdminController extends Controller
      */
     public function index()
     { {
-            $allDataAkun = Auth::all();
-            $allDataNoVerified = Pengajuan::where('is_verified', 0)->count();
-            $allDataVerified = Pengajuan::where('is_verified', 1)->count();
-            $sumDataAkun = $allDataAkun->count();
-            return view('/', ["jumlahAkun" => $sumDataAkun, "declineAkun" => $allDataNoVerified, "approveAkun" => $allDataVerified,]);
+            // $allDataAkun = Auth::all();
+            $allDataVerified1 = pendaftar::all()->count();
+            $allDataVerified2 = Pengajuan::count();
+           
+            return view('/admin/indexadmin', compact('allDataVerified1', 'allDataVerified2'));
         }
     }
+
+    public function getreadpendaftar()
+    {
+        // $pendaftar = Pendaftar::paginate(10);
+        $rekapdata1 = pendaftar::all();
+        return view('admin/rekapdata1', [
+            'rekap1' => $rekapdata1
+        ]);
+
+        // return response()->json([
+        //     'data' => $pendaftar
+        // ]);
+    }
+
+    public function getreadpengajuan()
+    {
+        // $pendaftar = Pendaftar::paginate(10);
+        $rekapdata2 = pengajuan::all();
+        return view('admin/rekapdata2', [
+            'rekap2' => $rekapdata2
+        ]);
+
+    }
+
+    public function getReadAccept1(){
+        $accept = DB::table('pendaftar')
+        ->where('pendaftar.STATUS_PENDAFTAR', '=', '1')->get();
+     
+        //mengirim data ke view pengajuan
+        return view('admin/accept1', [
+            'accept1' => $accept
+        ]);
+        
+    }
+
+    public function getReadAccept2(){
+        $accept = DB::table('pengajuan')
+        ->where('pengajuan.STATUS_PENGAJUAN', '=', '1')->get();
+     
+        //mengirim data ke view pengajuan
+        return view('admin/accept2', [
+            'accept2' => $accept
+        ]);
+        
+    }
+
+    public function getReadlogbook()
+    {
+        // $logbook = logbook::paginate(10);
+        $logbook = logbook::all();
+        return view('admin/logbook', [
+            'logbook' => $logbook
+        ]);
+
+    }
+
+    
 
     /**
      * Show the form for creating a new resource.

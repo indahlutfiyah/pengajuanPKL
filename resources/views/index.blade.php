@@ -76,7 +76,7 @@
                         <h1>Pengajuan dan Aktivitas Internship BMKG Juanda</h1>
                         <h2>Selamat datang di halaman Sistem Informasi Pengajuan dan Aktivitas PKL/Magang BMKG Juanda
                         </h2>
-                        <a href="#services" class="btn-get-started scrollto">Get Started</a>
+                        <a href="/login" class="btn-get-started scrollto">Login</a>
                     </div>
                 </div>
                 <div class="col-lg-2 order-1 order-lg-2 hero-img" data-aos="fade-left">

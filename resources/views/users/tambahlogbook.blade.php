@@ -27,7 +27,8 @@
                 <div class="tab-pane fade show active tahap1" id="tahap1">
                 <h5 class="card-title">Tambah Logbook</h5>
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form action="/store" method="post">
+                    @csrf
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-3 col-lg-2 col-form-label">Nama</label>
                       <div class="col-md-9 col-lg-10">
@@ -45,10 +46,10 @@
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-3 col-lg-2 col-form-label">Deskripsi</label>
                       <div class="col-md-9 col-lg-10">
-                      <textarea name="des" class="form-control" style="height: 100px"></textarea>
+                      <textarea name="des" class="form-control" type="text" style="height: 100px"></textarea>
                       </div>
                     </div>
-                    <h1 style="text-align:right;"><a href="tambah.php"><button type="button" class="btn btn-primary">TAMBAH</button></a></h1>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
                     <br>
                   </form><!-- End Profile Edit Form -->
                 </div>

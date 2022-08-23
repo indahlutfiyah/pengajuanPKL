@@ -48,24 +48,7 @@
                                     <input type="text" name="password" class="form-control" id="name"
                                         placeholder="Your Password" required><br>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <label for="">Jenis Intern</label>
-                                        <select id="" class="form-control" name="intern">
-                                            <option selected>Silakan Pilih</option>
-                                            <option>PKL</option>
-                                            <option>Magang</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="">Individu/Tim</label>
-                                        <select id="" class="form-control" name="kelompok">
-                                            <option selected>Silakan Pilih</option>
-                                            <option>Individu</option>
-                                            <option>Kelompok</option>
-                                        </select><br>
-                                    </div>
-                                </div>
+                               
                                 <div class="text-center"><button type="submit">Register</button></div>
                     </form>
                 </div>
