@@ -6,6 +6,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LogbookController;
+use App\Http\Controllers\fullCalenderController;
+
+
 
 
 /*
@@ -80,6 +84,25 @@ Route::get('/rekap1', [AdminController::class, 'getRead'] );
 Route::get('/cekPengajuan', function(){
     return view('/users/cekPengajuan');
 });
+/**admin */
+
+Route::get('/admin', [AdminController::class,'index']);
+Route::get('/admin/rekapdata1', [AdminController::class,'getreadpendaftar']);
+Route::get('/admin/rekapdata2', [AdminController::class,'getreadpengajuan']);
+Route::get('/admin/accept1', [AdminController::class,'getReadAccept1']);
+Route::get('/admin/accept2', [AdminController::class,'getReadAccept1']);
+Route::get('/admin/logbook', [AdminController::class,'getReadlogbook']);
+
+Route::get('fullCalender', [fullCalenderController::class,'index']);
+Route::post('fullCalender', [fullCalenderController::class,'action']);
+
+/** user */
+Route::get('/users/logbook', [LogbookController::class,'index']);
+Route::get('/users/tambahlogbook',[LogbookController::class,'tambah']);
+Route::post('/store', [LogbookController::class,'store']);
+Route::get('/users/editlogbook{id}', [LogbookController::class,'edit']);
+Route::post('logbook/update', [LogbookController::class,'update']);
+
 
 /**admin */
 

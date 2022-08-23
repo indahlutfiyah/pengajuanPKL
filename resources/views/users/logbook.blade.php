@@ -23,8 +23,10 @@
               <div class="card recent-sales overflow-auto">
                 <div class="card-body">
                   <h5 class="card-title">LOGBOOK USER <span>| INTERNSHIP</span></h5>
-                  <h1 style="text-align:right;"><a href="tambah.php"><button type="button" class="btn btn-success">Tambah data</button></a></h1>
-
+                  <h1 style="text-align:right;"><a href="../users/tambahlogbook"><button type="button" class="btn btn-success">Tambah data</button></a></h1>
+                  @if (Session::has('status'))
+                            <p class="alert alert-info">{{ Session::get('status') }}</p>
+                        @endif
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
@@ -37,45 +39,19 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row"><a href="#">1</a></th>
-                        <td>Unair 1</td>
-                        <td>9 April 2022</td>
-                        <td>Melakukan redesain landing page web bmkg Juanda</td>
-                        <td>  
-                          <button type="button" class="btn btn-warning">EDIT</button>
-                          <button type="button" class="btn btn-danger">DELETE</button>
-                        </td>
-                      </tr>
+                        @foreach($logbook1 as $data )
+                    <tbody>
                       <tr>
-                        <th scope="row"><a href="#">2</a></th>
-                        <td>Unair 1</td>
-                        <td>14 April 2022</td>
-                        <td>Melakukan redesain tatausaha bmkg juanda</td>
-                        <td>  
-                          <button type="button" class="btn btn-warning">EDIT</button>
-                          <button type="button" class="btn btn-danger">DELETE</button>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->NAMA }}</td>
+                        <td>{{ $data->TGL_KEGIATAN }}</td>
+                        <td>{{ $data->DESKRIPSI }}</td>
+                        <td>
+                          <a href="/users/editlogbook{{ $data->ID_LOGBOOK }}"><i class="btn btn-warning">EDIT</i></a> | 
+                        <button type="button" class="btn btn-danger">DELETE</button>
                         </td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">3</a></th>
-                        <td>Unair 1</td>
-                        <td>19 April 2022</td>
-                        <td>Melakukan redesain pengajuan internship bmkg juanda</td>
-                        <td>  
-                          <button type="button" class="btn btn-warning">EDIT</button>
-                          <button type="button" class="btn btn-danger">DELETE</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">4</a></th>
-                        <td>Unair 1</td>
-                        <td>15 April 2022</td>
-                        <td>Melakukan redesain fklim bmkg juanda</td>
-                        <td>  
-                          <button type="button" class="btn btn-warning">EDIT</button>
-                          <button type="button" class="btn btn-danger">DELETE</button>
-                        </td>
-                      </tr>
+                  </tr>
+                  @endforeach
                     </tbody>
                   </table>
 

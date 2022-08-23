@@ -22,7 +22,9 @@
             <div class="col-lg-12">
             <div class="row">
             <h5 class="card-title">VALIDASI<span> PKL/MAGANG</span></h5>
-
+            {{-- <h3>{{ Session::get('name') }}</h3>
+            <h3>{{ Session::get('email') }}</h3>
+            <h3>{{ Session::get('role') }}</h3> --}}
                 <!-- PKL VALIDASI TAHAP 1 -->
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card customers-card">
@@ -33,8 +35,8 @@
                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>6</h6>
-                                    <span class="text-danger small pt-1 fw-bold">Pengajuan</span>
+                                    <h6>{{ $allDataVerified1 }}</h6>
+                                    <span class="text-danger small pt-1 fw-bold">Pendaftaran</span>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +53,7 @@
                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>3</h6>
+                                    <h6>{{ $allDataVerified2 }}</h6>
                                     <span class="text-danger small pt-1 fw-bold">Pengajuan</span>
                                 </div>
                             </div>

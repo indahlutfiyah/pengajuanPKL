@@ -36,6 +36,7 @@
                             <p class="alert alert-info">{{ Session::get('registrasisuccess') }}</p>
                         @endif
                     </p>
+                    <p> Yang telah login adalah {{ $name }} </p>
                     <form action="/login" method="post" role="form" class="php-email-form">
                         @csrf
                         <div class="row">
@@ -52,6 +53,9 @@
                                         placeholder="Your Password" required><br>
                                 </div>
                                 <div class="text-center"><button type="submit">LOGIN</button></div>
+                                <div class="text-center">
+                                    <a class="small" href="/register">Create an Account!</a>
+                                </div>
                     </form>
                 </div>
             </div>

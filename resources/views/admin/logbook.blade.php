@@ -33,31 +33,15 @@
                         <th scope="col" name="des">Deskripsi</th>
                       </tr>
                     </thead>
+                    @foreach($logbook as $data )
                     <tbody>
                       <tr>
-                        <th scope="row"><a href="#">1</a></th>
-                        <td>Unair 1</td>
-                        <td>9 April 2022</td>
-                        <td>Melakukan redesain landing page web bmkg Juanda</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->NAMA }}</td>
+                        <td>{{ $data->TGL_KEGIATAN }}</td>
+                        <td>{{ $data->DESKRIPSI }}</td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2</a></th>
-                        <td>Undip 2</td>
-                        <td>14 April 2022</td>
-                        <td>Melakukan redesain tatausaha bmkg juanda</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">3</a></th>
-                        <td>Unbraw 3</td>
-                        <td>19 April 2022</td>
-                        <td>Melakukan redesain pengajuan internship bmkg juanda</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">4</a></th>
-                        <td>Unesa 4</td>
-                        <td>15 April 2022</td>
-                        <td>Melakukan redesain fklim bmkg juanda</td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
 
