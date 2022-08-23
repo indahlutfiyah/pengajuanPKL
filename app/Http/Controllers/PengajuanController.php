@@ -5,61 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\user;
+use App\Models\Pendaftar;
+use Illuminate\Contracts\Session\Session;
 
 class PengajuanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $pengajuan = Pengajuan::paginate(10);
-        return view('pengajuan', [
-            'data' => $pengajuan,
-            'message' => 'berhasil!!'
+        $email = $request->session()->get('email');
+
+        $user = pengajuan::where('email',"=",$email)->get(); 
+        return view('/users/cekTahap2', [
+            'cek2' => $user
         ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function tambah()
-    {
-        return view('tahap2');
-    }
-
-    public function store(Request $request)
-    {
-        //
-        $pengajuan = new Pengajuan;
-        $pengajuan->SURAT_PENGANTAR = $request->SURAT_PENGANTAR;
-        $pengajuan->PROPOSAL = $request->PROPOSAL;
-        $pengajuan->STATUS_PENGAJUAN = $request->STATUS_PENGAJUAN;
-
-
-        // $pengajuan->save();
-
-        // return response()->json([
-        //     'data' => $pengajuan,
-        //     'message' => 'Tambah data berhasil!!'
-        // ]);
-
-        if ($pengajuan->save()) {
-            echo "
-            <script>
-                alert('Data berhasil ditambahkan');
-                document.location.href='/kecamatan'
-            </script>
-            ";
-        } else {
-            echo "
-            <script>
-                alert('Data gagal ditambahkan');
-                document.location.href='/createkecamatan'
-            </script>
-            ";
-        }
     }
 
     /**
@@ -68,11 +28,61 @@ class PengajuanController extends Controller
      * @param  \App\Models\Pendaftar  $pendaftar
      * @return \Illuminate\Http\Response
      */
-    public function show(Pengajuan $pendaftar)
+    public function show(Request $request)
     {
-        //
+        $email = $request->session()->get('email');
+
+        $user =  DB::table('users')->where('email','=' ,$email)->get();
+        
+        return view('/users/pendaftaran', ['user'=>$user[0]]);
 
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        
+        $status = Pendaftar::where('STATUS_PENDAFTAR','=','Accept1')->first(); 
+        
+        if(!$status){
+            redirect('/users/cekTahap1');
+        }else{
+            $pengajuan = new Pengajuan;
+            $pengajuan->EMAIL = $request->session()->get('email');
+            $pengajuan->SURAT_PENGANTAR = $request->surat;
+        $pengajuan->PROPOSAL = $request->proposal;
+        $pengajuan->STATUS_PENGAJUAN = $request->input('STATUS_PENGAJUAN','Waiting');
+        
+        // $pengajuan->save();
+        
+        // return response()->json([
+        //     'data' => $pengajuan,
+        //     'message' => 'Tambah data berhasil!!'
+        // ]);
+
+        if ($pengajuan->save()) {
+            echo "
+            <script>
+            alert('Data berhasil ditambahkan');
+            document.location.href='/users/cekTahap2'
+            </script>
+            ";
+        } else {
+            echo "
+            <script>
+            alert('Data gagal ditambahkan');
+            document.location.href='/users'
+            </script>
+            ";
+        }
+        }
+    }
+
 
     /**
      * Update the specified resource in storage.

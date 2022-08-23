@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\factory;
@@ -25,10 +26,7 @@ class AuthController extends Controller
 
                 'name' => 'required',
                 'email' => 'required|email|unique:users',
-                'password' => 'required',
-                'intern' => 'required',
-                'kelompok' => 'required'
-
+                'password' => 'required'                 
 
             ]);
             if ($validator->fails()) {
@@ -37,14 +35,14 @@ class AuthController extends Controller
             $user = User::create([
                 'name' => request('name'),
                 'email' => request('email'),
-                'intern' => request('intern'),
-                'kelompok' => request('kelompok'),
+                'role' => request('role','registered'),
                 'password' => Hash::make(request('password')),
 
             ]);
 
             if ($user) {
                 Session::flash('registrasisuccess', 'Akun telah berhasil dibuat');
+                $request->session()->put('name',request('name'));
                 return redirect('/login');
 
                 // return response()->json(["message"=>'pendaftaran berhasil !']);
@@ -61,7 +59,6 @@ class AuthController extends Controller
         }
     }
 
-
     /**
      * Get a JWT via given credentials.
      *
@@ -70,18 +67,25 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if ($request->isMethod('post')) {
-            $credentials = request(['email', 'password', 'intern', 'kelompok']);
-
+            $credentials = request(['email', 'password']);
             if (!$token = auth()->attempt($credentials)) {
                 // return response()->json(['error' => 'Unauthorized'], 401);
+              
                 return redirect()->intended('/');
+                
             }
+           
+            $dataUser = DB::table('users')->where('email','=' ,request('email'))->get();
 
-            // return $this->respondWithToken($token);
-            return back()->with('LoginError', 'Login failed!');
+            $request->session()->put('name',$dataUser[0]->name);
+            $request->session()->put('email',$dataUser[0]->email);
+            $request->session()->put('role',$dataUser[0]->role);
+            
+            return redirect('/view/users');
         }
         if ($request->isMethod('get')) {
-            return view('login');
+            $name = $request->session()->get('name');
+            return view('login',["name"=>$name]);
         }
     }
     /**
