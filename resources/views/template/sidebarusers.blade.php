@@ -54,7 +54,43 @@
               <i class="bi bi-layout-text-window-reverse"></i><span>Rekap Data Tahap 2</span>
             </a>
           </li><!-- End Tables Nav -->
-    
+          
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-pen"></i><span>Data Accept</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content " data-bs-parent="#sidebar-nav">
+            <li>
+                <a href="../admin/accept1">
+                <i class="bi bi-circle"></i><span>Acceppt Tahap 1</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/accept2">
+                <i class="bi bi-circle"></i><span>Accept Tahap 2</span>
+                </a>
+            </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-pen"></i><span>Data Decline</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content " data-bs-parent="#sidebar-nav">
+            <li>
+                <a href="users/pengajuan1">
+                <i class="bi bi-circle"></i><span>Decline Tahap 1</span>
+                </a>
+            </li>
+            <li>
+                <a href="users/pengajuan2">
+                <i class="bi bi-circle"></i><span>Decline Tahap 2</span>
+                </a>
+            </li>
+            </ul>
+        </li>
+
           <li class="nav-heading">LOGBOOK</li>
           <li class="nav-item">
             <a class="nav-link collapsed" href="../admin/logbook">
@@ -63,30 +99,50 @@
             </a>
           </li><!-- End Register Page Nav -->
 
-            <!-- LOGBOOK -->
+            <!--END LOGBOOK -->
+            <li class="nav-heading">KALENDER</li>
+            <li class="nav-item">
+              <a class="nav-link collapsed" href="#">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Kalender</span>
+              </a>
+            </li><!-- End Register Page Nav -->
+
             <li class="nav-heading">PENDAFTARAN</li>
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="../users/pendaftaran">
                         <i class="bi bi-pen"></i><span>Pendaftaran PKL/Magang</span>
                     </a>
                 </li>
+                {{-- Cek Pendaftar --}}
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="../users/cekPendaftaran.blade.php">
-                    <i class="bi bi-folder2-open"></i>
-                    <span>Cek Status Pendaftaran</span>
-                    </a>
-                </li>
+                  <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                      <i class="bi bi-pen"></i><span>Cek Status Pendaftaran</span><i class="bi bi-chevron-down ms-auto"></i>
+                  </a>
+                  <ul id="tables-nav" class="nav-content " data-bs-parent="#sidebar-nav">
+                  <li>
+                      <a href="../users/cekTahap1">
+                      <i class="bi bi-circle"></i><span>Status Tahap 1</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="../users/cekTahap2">
+                      <i class="bi bi-circle"></i><span>Status Tahap 2</span>
+                      </a>
+                  </li>
+                  </ul>
+              </li>
 
             <!-- LOGBOOK -->
             <li class="nav-heading">LOGBOOK</li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="../users/tambahlogbook">
+                    <a class="nav-link collapsed" href="/view/tambahlogbook">
                         <i class="bi bi-pen"></i>
                         <span>Mengisi Logbook</span>
                     </a>
                 </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="users/ceklogbook">
+                <a class="nav-link collapsed" href="/view/ceklogbook">
                 <i class="bi bi-folder2-open"></i>
                 <span>Cek Logbook</span>
                 </a>

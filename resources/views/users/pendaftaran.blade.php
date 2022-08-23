@@ -45,7 +45,8 @@
                 <div class="tab-pane fade show active tahap1" id="tahap1">
                 <h5 class="card-title">Input Data Diri</h5>
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form action= "/Pendaftar/store" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-4 col-lg-3 col-form-label"><b>Nama Kel/Individu</b></label>
                       <div class="col-md-8 col-lg-8">
@@ -70,14 +71,14 @@
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-4 col-lg-3 col-form-label"><b>No.Telp</b></label>
                       <div class="col-md-8 col-lg-8">
-                        <input name="tlp" type="text" class="form-control" id="" value="">
+                        <input name="tlp" type="number" class="form-control" id="" value="">
                       </div>
                     </div>
-
+                  
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-4 col-lg-3 col-form-label"><b>Email Ketua</b></label>
                       <div class="col-md-8 col-lg-8">
-                        <input name="email" type="text" class="form-control" id="" placeholder="Masukkan sesuai email registrasi anda" value="">
+                        <input name="email" readonly type="" class="form-control" id="" value="{{ $user->email }}">
                       </div>
                     </div>
 
@@ -98,7 +99,7 @@
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-4 col-lg-3 col-form-label"><b>Periode</b></label>
                       <div class="col-md-8 col-lg-8">
-                        <input name="periode" type="text" class="form-control" id="" value="">
+                        <input name="periode" type="number" class="form-control" id="" value="">
                       </div>
                     </div>
 
@@ -116,7 +117,7 @@
                     <div class="row mb-3">
                       <label for="no telp" class="col-md-4 col-lg-3 col-form-label"><b>Pilihan Tempat</b></label>
                       <div class="col-md-8 col-lg-8">
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="pil">
                           <option selected>-</option>
                           <option value="teknisi">Teknisi</option>
                           <option value="observasi">Observasi</option>
@@ -152,11 +153,12 @@
                 <div class="tab-pane fade show tahap2" id="tahap2">
                 <h5 class="card-title">Input Berkas</h5>
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form action= "/pengajuan/store" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="row mb-3">
-                      <label for="no telp" class="col-md-4 col-lg-3 col-form-label"><b>Nama Kel/Individu</b></label>
+                      <label for="no telp" class="col-md-4 col-lg-3 col-form-label"><b>Email</b></label>
                       <div class="col-md-8 col-lg-8">
-                      <textarea name="name" class="form-control" style="height: 100px" placeholder="Masukkan nama sesuai tahap 1"></textarea>
+                        <input name="email" readonly type="" class="form-control" id="" value="{{ $user->email }}">
                       </div>
                     </div>
                     <div class="row mb-3">

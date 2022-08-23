@@ -8,7 +8,7 @@ class Pendaftar extends Model
 {
     protected $table = 'pendaftar';
     protected $primaryKey = 'ID_PENDAFTAR';
-    protected $fillable = ['NAMA, ASAL_INSTANSI, JURUSAN, NO_TLP, EMAIL, 
-    PERIODE_MAGANG, START_DATE, END_DATE, PILIHAN_TEMPAT, RENCANA_KEGIATAN, FILE_CV, STATUS_PENGAJUAN, PASSWORD'];
+    protected $fillable = [ 'NAMA, EMAIL, ASAL_INSTANSI, JURUSAN, NO_TLP, JENIS_INTERN, KEL_IND,
+    PERIODE_MAGANG, START_DATE, END_DATE, PILIHAN_TEMPAT, RENCANA_KEGIATAN, FILE_CV,STATUS_PENDAFTAR'];
 
 }
