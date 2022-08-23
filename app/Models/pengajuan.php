@@ -9,5 +9,5 @@ class pengajuan extends Model
 {
     protected $table = 'pengajuan';
     protected $primaryKey = 'ID_PENGAJUAN';
-    protected $fillable = ['SURAT_PENGANTAR, PROPOSAL, STATUS_PENGAJUAN'];
+    protected $fillable = ['EMAIL, SURAT_PENGANTAR, PROPOSAL, STATUS_PENGAJUAN'];
 }

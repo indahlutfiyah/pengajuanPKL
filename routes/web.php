@@ -3,10 +3,12 @@
 use Faker\Provider\UserAgent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogbookController;
 use App\Http\Controllers\fullCalenderController;
+
 
 
 
@@ -72,11 +74,12 @@ Route::post('/auth/login', function () {
 
 });
 
-Route::get('/magang1individu', [PendaftarController::class, 'index'] );
+Route::get('/rekap1', [PendaftarController::class, 'indexAdmin'] );
 Route::get('/decline', [PendaftarController::class, 'decline'] );
 Route::get('/accept', [PendaftarController::class, 'accept'] );
 Route::get('/change-status/{ID_PENDAFTAR}', [PendaftarController::class, 'changeStatus']);
 
+Route::get('/rekap1', [AdminController::class, 'getRead'] );
 
 Route::get('/cekPengajuan', function(){
     return view('/users/cekPengajuan');
@@ -99,5 +102,35 @@ Route::get('/users/tambahlogbook',[LogbookController::class,'tambah']);
 Route::post('/store', [LogbookController::class,'store']);
 Route::get('/users/editlogbook{id}', [LogbookController::class,'edit']);
 Route::post('logbook/update', [LogbookController::class,'update']);
+
+
+/**admin */
+
+Route::get('/admin', [AdminController::class,'index']);
+Route::get('/admin/rekapdata1', [AdminController::class,'getreadpendaftar']);
+Route::get('/admin/rekapdata2', [AdminController::class,'getreadpengajuan']);
+Route::get('/admin/accept1', [AdminController::class,'getReadAccept1']);
+Route::get('/admin/accept2', [AdminController::class,'getReadAccept1']);
+Route::get('/admin/logbook', [AdminController::class,'getReadlogbook']);
+
+Route::get('fullCalender', [fullCalenderController::class,'index']);
+Route::post('fullCalender', [fullCalenderController::class,'action']);
+
+/** user */
+Route::get('/users/logbook', [LogbookController::class,'index']);
+Route::get('/users/tambahlogbook',[LogbookController::class,'tambah']);
+Route::post('/store', [LogbookController::class,'store']);
+Route::get('/users/editlogbook{id}', [LogbookController::class,'edit']);
+Route::post('logbook/update', [LogbookController::class,'update']);
+
+// Tahap 1
+Route::get('/users/pendaftaran',[PendaftarController::class,'show']);
+Route::post('/Pendaftar/store', [PendaftarController::class,'store']);
+Route::get('/users/cekTahap1', [PendaftarController::class,'index']);
+
+// Tahap 2
+Route::get('/users/pengajuan',[PengajuanController::class,'show']);
+Route::post('/pengajuan/store', [PengajuanController::class,'store']);
+Route::get('/users/cekTahap2', [PengajuanController::class,'index']);
 
 
